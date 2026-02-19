@@ -1,2 +1,2 @@
-# jouiCORE
-Myself
+# jouiARCH-TECTURE
+my build
