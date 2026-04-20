@@ -32,7 +32,7 @@
 	box-sizing: border-box;
 }
 
-/* ¨¨BASE DO DOCUMENTO */
+/* ""BASE DO DOCUMENTO */
 html {
     scroll-behavior: smooth; /* rolagem suave nos links âncora */
     scrollbar-width: thin; /* scrollbar fina (Firefox) */
@@ -53,15 +53,27 @@ main {
 	padding: 3rem 2rem 6rem; /* espaço interno */
 }
 
-/* ¨¨HEADER */
+/* ""HEADER */
 header {
 	max-width: 780px;
 	margin: 0 auto;
 	padding: 4rem 2rem 3rem;
 	border-bottom: 1px solid var(--blue-dim);
+	position: relative;
 }
 
-/* ¨¨TITULOS */
+header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 120;
+    height: 1px;
+    background: var(--blue-glow);
+    box-shadow: 0 0 8px var(--blue-cold);
+}
+
+/* ""TITULOS */
 h1 {
 	font-family: 'Space Mono', monospace;
 	font-size: 2rem;
@@ -90,7 +102,7 @@ h3 {
 	margin: 2rem 0 0.8rem;
 }
 
-/* ¨¨TEXTO */
+/* ""TEXTO */
 p {
 	font-size: 14px;
 	margin-bottom: 1.2rem;
@@ -107,7 +119,7 @@ em {
 	font-style: italic;
 }
 
-/* ¨¨NAVEGAÇÃO */
+/* ""NAVEGAÇÃO */
 nav {
 	max-width: 780px;
 	margin: 0 auto;
@@ -130,12 +142,40 @@ nav a:hover {
 	padding-left: 6px;
 }
 
-/* ¨¨SEÇÕES */
+.nav-index-tittle {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2em;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+    font-family: 'Space Mono', monosspace;
+}
+
+/* ""SEÇÕES */
 section {
 	margin-bottom: 4rem;
 }
 
-/* """PILLAR CARD */
+.section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--blue-dim);
+    margin-bottom: 0.5rem;
+}
+
+.ascii-divider {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text-tuxed);
+    text-align: center;
+    margin: 3rem 0;
+    opacity: 0.5;
+    user-select: none;
+}
+
+/* ""PILLAR CARD */
 .pillar {
     padding: 1.5rem;
     margin: 1.5rem 0;
@@ -159,7 +199,90 @@ section {
     letter-spacing: 0.05rem;
 }
 
-/* ¨¨FOOTER */
+/* """MEDIA */
+/* Container: Flexbox vertical com gaps de 1px */
+.media-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: #151520; /* cor do gap */
+    border: 1px solid #151520;
+    margin: 1.5rem;
+}
+
+/* Cada item: grid de 2 colunas */
+.media-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    background: var(--bg-surface);
+    padding: 1rem 1.2rem;
+    transition: background 0.2s;
+}
+
+.media-item:hover {
+    background: var(--bg-surface);
+}
+
+.media-type {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'Space Mono',monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.15;
+    padding-top: 2px;
+}
+
+.media-type.anime { color: var(--blue-dim); }
+.media-type.filme { color: var(--red-dim); }
+.media-type.jogo { color: #3a6b3a; }
+.media-type.musica { color: #6b5a3a; }
+
+/* ""BLOCO DE QUOTE */
+.quote-block {
+    border-left: 2px solid var(--blue-dim);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: var(--bg-surface);
+    font-size: 13px;
+    color: var(--text-dim);
+    font-style: italic;
+    position: relative; /* âncora para ::before/::after */
+}
+
+.quote-block::before {
+    content: '|*'; /* texto gerado por CSS */
+    position: absolute;
+    top: -8px;
+    left: 12px;
+    font-size: 10px;
+    color: (var--text-muted);
+    font-style: normal;
+    font-family: 'Space Mono', monospace;
+}
+
+.quote-block::after {
+    content: '*|';
+    position: absolute;
+    bottom: -8px;
+    right: 12px;
+    /* ...mesmo estilo do ::before */
+}
+
+/* """TERMINAL BLOCK */
+.terminal-block {
+    background: #060609;
+    border: 1px solid #1a1a26;
+    padding: 1.2rem 1.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+}
+
+.terminal-block .prompt { color: var(--blue-cold); }
+.terminal-block .command { color: var(--green-term); }
+.terminal-block .output { color: var(--text-muted); }
+.terminal-block .comment { color: #3a3a4a; }
+
+/* ""FOOTER */
 footer {
 	max-width: 780px;
 	margin: 0 auto;
